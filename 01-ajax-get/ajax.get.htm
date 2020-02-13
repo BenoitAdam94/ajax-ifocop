@@ -1,0 +1,56 @@
+<!--
+Référence pour l'objet XMLHttpRequest
+https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest
+https://msdn.microsoft.com/en-us/ie/ms535874(v=vs.94)
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ajax get</title>
+        <style>
+            .conteneur { width: 1000px; margin: 0 auto; padding: 20px; border:1px solid #333;}
+        </style>
+    </head>
+    <body>
+        <div class="conteneur">
+            <div id="affichage">
+                Hello world !
+            </div>
+            <button id="action">
+                Changer le contenu
+            </button>
+        </div>
+        <script>
+            // mise en place d'un evenement onclick
+            document.getElementById('action').addEventListener('click', function() {
+
+                // Objet XMLHttpRequest
+                var xhttp = new XMLHttpRequest ();
+                console.log(xhttp);
+
+                //on met en place un évenement lors des changements de status pendant l'appel ajax
+                xhttp.onreadystatechange = function () {
+
+                    console.log('statut HTTP :' + xhttp.status); // statut http
+                    console.log('statut Ajax' + xhttp.readyState); // statut de la requete Ajax
+
+                    if(xhttp.status == 200 && xhttp.readyState == 4) {
+                        // si le statut http est égale a 200 => page found
+                        // si le statut ajax est égal a 4 -> requete terminée on a récupéré la réponse
+
+                        //la réponse obtenue se trouve dans la propriété réponsetext
+                        console.log(xhttp.responseText);
+                        document.getElementById('affichage').textContent = xhttp.responseText;
+                    } // fermeture du if
+                } // fermeture du onreadystatechange
+                // on prepare l'appel AJAX
+                xhttp.open('GET', 'texte.txt', true);
+                // xhttp.open(la_methode, l'url_cible, asynchrone); // (le troisième argument true est facultatif car true par défaut)
+                xhttp.send();
+            });
+
+        </script>
+    </body>
+</html>

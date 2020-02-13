@@ -1,0 +1,21 @@
+{
+    "name": "php-underline-in-html",
+    "displayName": "PHP underline in HTML",
+    "description": "Addition to the \"dark plus theme\" by adding an udnerline for PHP inside HTML (mostly usefull for forms)",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "Dark+PHPinHTML",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Dark+PHPinHTML-color-theme.json"
+            }
+        ]
+    }
+}
