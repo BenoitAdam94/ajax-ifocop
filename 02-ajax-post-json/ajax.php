@@ -1,9 +1,7 @@
 <?php
-
 // ajax-post-json.php
 // ajax.php
 // fichier.json
-
 
 // json_encode() permet de transformer un tableau array php en format json
 // json_decode() permet de transformer un format json en tableau array PHP
@@ -46,7 +44,6 @@ if(isset($_POST['choix'])) {
     }
 
 }
-
 
 
 echo json_encode($tab);
